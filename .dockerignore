@@ -1,0 +1,10 @@
+dnSpy/
+obj/
+bin/
+
+Dockerfile
+
+*.md
+*.json
+*.bat
+.git*
