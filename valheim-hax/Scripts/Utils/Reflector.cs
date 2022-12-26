@@ -156,7 +156,7 @@ public class Reflector {
     public Reflector InvokePublicStaticMethod(string methodName, params object[] args) => new Reflector(this.InvokePublicStaticMethod<object>(methodName, args));
 
     // Miscellaneous methods
-    void LogReflectionError(Exception e) => Console.Print($"Reflection Error in {new StackFrame(5).GetMethod().Name}:\n{e}");
+    void LogReflectionError(Exception e) => Console.instance.Print($"Reflection Error in {new StackFrame(5).GetMethod().Name}:\n{e}");
 
     public static Reflector Target(object obj) => new Reflector(obj);
 

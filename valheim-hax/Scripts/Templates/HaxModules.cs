@@ -5,11 +5,11 @@ public class HaxModules : HaxComponents {
 
     protected virtual void OnEnable() {
         if (!this.ModEnabled) return;
-        Console.Print($"{this.GetType().Name} component enabled.");
+        Console.instance.Print($"{this.GetType().Name} component enabled.");
     }
 
     protected virtual void OnDisable() {
         if (!this.ModEnabled) return;
-        Console.Print($"{this.GetType().Name} component disabled.");
+        Console.instance.Print($"{this.GetType().Name} component disabled.");
     }
 }

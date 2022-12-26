@@ -17,23 +17,4 @@ public static class Global {
         if (go.activeSelf == isActive) return;
         go.SetActive(isActive);
     }
-
-    public static void PrintInChat(object log) {
-        string strLog = log.ToString();
-
-        if (strLog.Contains("\n")) {
-            PrintInChat(strLog.Split(Environment.NewLine.ToCharArray()));
-            return;
-        }
-
-        ChatManager.LocalDebugChatMessage(strLog);
-    }
-
-    public static void PrintInChat(IList<string> logs) => new List<string>(logs).ForEach(PrintInChat);
-
-    public static void PrintInChat(IList<int> logs) => PrintInChat(new List<int>(logs).ConvertAll(x => x.ToString()));
-
-    public static void PrintInChat(IList<float> logs) => PrintInChat(new List<float>(logs).ConvertAll(x => x.ToString()));
-
-    public static void PrintInChat(IList<bool> logs) => PrintInChat(new List<bool>(logs).ConvertAll(x => x.ToString()));
 }

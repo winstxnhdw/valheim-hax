@@ -4,19 +4,22 @@
 
     <OutDir>../bin</OutDir>
     <LangVersion>latest</LangVersion>
-    <TargetFramework>net40</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <RootNamespace>valheim_hax</RootNamespace>
 
   </PropertyGroup>
 
+  <Target Name="CleanBeforeRestore" BeforeTargets="Restore">
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+    <RemoveDir Directories="$(BaseOutputPath)" />
+    <RemoveDir Directories="$(PublishDir)" />
+    <RemoveDir Directories="$(PublishDir)../References/NuGet" />
+  </Target>
+
   <ItemGroup>
 
-    <Reference Include="Assembly-CSharp">
-      <HintPath>./References/Assembly-CSharp.dll</HintPath>
-    </Reference>
-
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>./References/Assembly-CSharp-firstpass.dll</HintPath>
+    <Reference Include="assembly_valheim">
+      <HintPath>./References/assembly_valheim.dll</HintPath>
     </Reference>
 
     <Reference Include="UnityEngine">
@@ -35,10 +38,11 @@
       <HintPath>./References/UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
 
-    <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>./References/UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Lib.Harmony" Version="2.2.2" />
+
+    <EmbeddedResource Include="./References/NuGet/lib.harmony/2.2.2/lib/net48/0Harmony.dll" />
 
   </ItemGroup>
+
 
 </Project>

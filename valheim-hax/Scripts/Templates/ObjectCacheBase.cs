@@ -16,7 +16,7 @@ public class ObjectCacheBase {
     protected virtual void FindObject() { }
 
     IEnumerator ICacheObjects() {
-        Console.Print($"Caching {this.TypeName()} object(s)..");
+        Console.instance.Print($"Caching {this.TypeName()} object(s)..");
 
         while (true) {
             this.FindObject();
@@ -31,6 +31,6 @@ public class ObjectCacheBase {
 
     public void Stop() {
         this.Self.StopCoroutine(this.ICacheObjects());
-        Console.Print($"Stopping cache for {this.TypeName()} object(s).");
+        Console.instance.Print($"Stopping cache for {this.TypeName()} object(s).");
     }
 }

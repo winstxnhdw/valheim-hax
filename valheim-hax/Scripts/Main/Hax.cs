@@ -7,7 +7,7 @@ public class Hax : HaxComponents {
     }
 
     void Update() {
-        if (Hax.HaxPaused || HaxObjects.LocalPlayerObject == null) {
+        if (Hax.HaxPaused || Player.m_localPlayer == null) {
             Global.SetActiveGameObject(Loader.HaxModules, false);
             return;
         }
@@ -17,7 +17,7 @@ public class Hax : HaxComponents {
 
     void ToggleHaxPause() {
         Hax.HaxPaused = !Hax.HaxPaused;
-        Console.Print($"Hax {(Hax.HaxPaused ? "paused" : "unpaused")}.");
+        Console.instance.Print($"Hax {(Hax.HaxPaused ? "paused" : "unpaused")}.");
     }
 
     void OnDestroy() {

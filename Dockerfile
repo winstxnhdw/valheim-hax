@@ -5,6 +5,5 @@ WORKDIR /
 COPY . ./
 
 ARG project_name="valheim-hax"
-RUN dotnet restore ${project_name}
 RUN dotnet build ${project_name}
 RUN dotnet publish submodules/SharpMonoInjectorCore/SharpMonoInjector
