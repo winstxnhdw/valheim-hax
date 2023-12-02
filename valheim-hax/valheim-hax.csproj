@@ -3,6 +3,7 @@
   <PropertyGroup>
 
     <OutDir>../bin</OutDir>
+    <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <TargetFramework>net48</TargetFramework>
     <RootNamespace>valheim-hax</RootNamespace>

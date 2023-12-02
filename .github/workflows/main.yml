@@ -4,9 +4,8 @@ name: dotnet
 on:
   push:
     paths:
-      - 'valheim-hax/**'
-      - 'submodules/SharpMonoInjectorCore'
-      - '.github/workflows/main.yml'
+      - .github/workflows/main.yml
+      - valheim-hax/**
 
 jobs:
   build:
@@ -14,17 +13,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        submodules: recursive
-    
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
 
     - name: Build valheim-hax
       run: dotnet build valheim-hax
-
-    - name: Build SharpMonoInjectorCore
-      run: dotnet build submodules/SharpMonoInjectorCore/SharpMonoInjector
