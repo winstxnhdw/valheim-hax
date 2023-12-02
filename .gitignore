@@ -1,4 +1,4 @@
-dnSpy/
 obj/
 bin/
 Nuget/
+*.sln

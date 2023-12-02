@@ -5,7 +5,7 @@
     <OutDir>../bin</OutDir>
     <LangVersion>latest</LangVersion>
     <TargetFramework>net48</TargetFramework>
-    <RootNamespace>valheim_hax</RootNamespace>
+    <RootNamespace>valheim-hax</RootNamespace>
 
   </PropertyGroup>
 
@@ -30,19 +30,10 @@
       <HintPath>./References/UnityEngine.CoreModule.dll</HintPath>
     </Reference>
 
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>./References/UnityEngine.IMGUIModule.dll</HintPath>
-    </Reference>
-
-    <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>./References/UnityEngine.InputLegacyModule.dll</HintPath>
-    </Reference>
-
     <PackageReference Include="Lib.Harmony" Version="2.2.2" />
 
     <EmbeddedResource Include="./References/NuGet/lib.harmony/2.2.2/lib/net48/0Harmony.dll" />
 
   </ItemGroup>
-
 
 </Project>

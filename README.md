@@ -11,13 +11,11 @@ Internal cheats for [Valheim](https://en.wikipedia.org/wiki/Valheim).
 
 ## Installation
 
-If you are on Windows 11, follow the instructions [here](https://github.com/winstxnhdw/rc15-hax/wiki) instead. Otherwise, recursively clone this repository.
-
 ```bash
 git clone --recursive https://github.com/winstxnhdw/valheim-hax.git
 ```
 
-You can now build and install the dependencies by executing `requirements.bat`. It is not required to build dnSpy if you do not plan on doing any [development](#Development).
+You can now build and install the dependencies by executing `requirements.bat`. It is not required to build dnSpy if you do not plan on doing any [development](#development).
 
 ## Usage
 
