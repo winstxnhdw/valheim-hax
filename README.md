@@ -1,7 +1,7 @@
 # valheim-hax
 
 [![main.yml](https://github.com/winstxnhdw/valheim-hax/actions/workflows/main.yml/badge.svg)](https://github.com/winstxnhdw/valheim-hax/actions/workflows/main.yml)
-[![auto-merge.yml](https://github.com/winstxnhdw/valheim-hax/actions/workflows/auto-merge.yml/badge.svg)](https://github.com/winstxnhdw/valheim-hax/actions/workflows/auto-merge.yml)
+[![dependabot.yml](https://github.com/winstxnhdw/valheim-hax/actions/workflows/dependabot.yml/badge.svg)](https://github.com/winstxnhdw/valheim-hax/actions/workflows/dependabot.yml)
 
 Internal cheats for [Valheim](https://en.wikipedia.org/wiki/Valheim).
 
