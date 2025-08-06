@@ -23,20 +23,10 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.head_ref }}
 
-      - name: Cache .NET tools
-        uses: actions/cache@v4.2.3
-        with:
-          path: ~/.nuget/packages
-          key: dotnet-tools-${{ runner.os }}-${{ hashFiles('.config/dotnet-tools.json') }}
-          restore-keys: dotnet-tools-${{ runner.os }}-
-
       - name: Setup .NET
         uses: actions/setup-dotnet@v4.3.1
         with:
           dotnet-version: 9.x
-
-      - name: Restore tools
-        run: dotnet tool restore
 
       - name: Format scripts
         run: |
@@ -52,7 +42,3 @@ jobs:
         run: |
           git commit -am "style: format scripts" || true
           git push
-
-
-  format-json:
-    uses: winstxnhdw/actions/.github/workflows/format-biome.yml@main
