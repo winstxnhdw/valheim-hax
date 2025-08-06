@@ -1,4 +1,4 @@
 obj/
 bin/
-Nuget/
+node_modules/
 *.sln
