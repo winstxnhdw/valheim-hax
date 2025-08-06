@@ -1,4 +1,4 @@
-name: Format
+name: Format JSON
 
 on:
   pull_request:
