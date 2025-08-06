@@ -17,6 +17,8 @@
 
   <ItemGroup>
 
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+
     <PackageReference Include="Valheim.GameLibs.Steam" Version="0.217.46-ngd.0" />
 
     <PackageReference Include="Lib.Harmony" Version="2.2.2" />

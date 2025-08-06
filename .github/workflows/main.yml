@@ -9,7 +9,7 @@ on:
       - valheim-hax/**
 
 env:
-  NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+  NUGET_PACKAGES: ${{ github.workspace }}\.nuget\packages
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
         with:
           dotnet-version: 9.x
           cache: true
-          cache-dependency-path: valheim-hax/packages.lock.json
+          cache-dependency-path: valheim-hax\packages.lock.json
 
       - name: Build
         run: dotnet build valheim-hax -restoreProperty:RestoreLockedMode=true /warnaserror
