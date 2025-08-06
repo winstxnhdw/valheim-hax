@@ -3,38 +3,31 @@
   <PropertyGroup>
 
     <OutDir>../bin</OutDir>
+    <Optimize>true</Optimize>
     <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>preview</LangVersion>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <TargetFramework>net48</TargetFramework>
     <RootNamespace>valheim-hax</RootNamespace>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 
   </PropertyGroup>
 
-  <Target Name="CleanBeforeRestore" BeforeTargets="Restore">
-    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
-    <RemoveDir Directories="$(BaseOutputPath)" />
-    <RemoveDir Directories="$(PublishDir)" />
-    <RemoveDir Directories="$(PublishDir)../References/NuGet" />
-  </Target>
-
   <ItemGroup>
 
-    <Reference Include="assembly_valheim">
-      <HintPath>./References/assembly_valheim.dll</HintPath>
-    </Reference>
-
-    <Reference Include="UnityEngine">
-      <HintPath>./References/UnityEngine.dll</HintPath>
-    </Reference>
-
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>./References/UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Valheim.GameLibs.Steam" Version="0.217.46-ngd.0" />
 
     <PackageReference Include="Lib.Harmony" Version="2.2.2" />
 
     <EmbeddedResource Include="./References/NuGet/lib.harmony/2.2.2/lib/net48/0Harmony.dll" />
 
   </ItemGroup>
+
+  <Target Name="CleanBeforeRestore" BeforeTargets="Restore">
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+    <RemoveDir Directories="$(OutDir)" />
+  </Target>
 
 </Project>

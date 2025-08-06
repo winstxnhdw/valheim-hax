@@ -8,32 +8,49 @@ using HarmonyLib;
 namespace Hax;
 
 public class Loader : MonoBehaviour {
-    static GameObject HaxGameObject { get; } = new GameObject();
+    const string HarmonyID = "winstxnhdw.valheim-hax";
+    static GameObject HaxGameObjects { get; } = new GameObject();
     public static GameObject HaxModules { get; } = new GameObject();
+    static bool HasLoaded => Harmony.HasAnyPatches(Loader.HarmonyID);
+    static void AddHaxModules<T>() where T : Component => Loader.HaxModules.AddComponent<T>();
+    static void AddHaxGameObject<T>() where T : Component => Loader.HaxGameObjects.AddComponent<T>();
 
-    static Assembly OnResolveAssembly(object _, ResolveEventArgs args) {
+    static void LoadLibraries() {
         Assembly assembly = Assembly.GetExecutingAssembly();
 
-        using Stream stream = assembly.GetManifestResourceStream(
-            assembly.GetManifestResourceNames()
-                    .First(name => name.EndsWith($"{new AssemblyName(args.Name).Name}.dll"))
-        );
-
-        using MemoryStream memoryStream = new();
-        stream.CopyTo(memoryStream);
-        return Assembly.Load(memoryStream.ToArray());
+        foreach (string resourceName in assembly.GetManifestResourceNames().Where(name => name.EndsWith(".dll"))) {
+            using Stream stream = assembly.GetManifestResourceStream(resourceName);
+            using MemoryStream memoryStream = new();
+            stream.CopyTo(memoryStream);
+            _ = AppDomain.CurrentDomain.Load(memoryStream.ToArray());
+        }
     }
 
-    public static void Load() {
-        AppDomain.CurrentDomain.AssemblyResolve += Loader.OnResolveAssembly;
+    internal static void Load() {
+        Loader.LoadLibraries();
+
+        if (Loader.HasLoaded) {
+            Logger.Write("valheim-hax has already loaded!");
+            return;
+        }
 
         Loader.LoadHarmonyPatches();
-
-        AppDomain.CurrentDomain.AssemblyResolve -= Loader.OnResolveAssembly;
     }
 
-
     static void LoadHarmonyPatches() {
-        new Harmony("winstxnhdw.valheim-hax").PatchAll();
+        try {
+            new Harmony(Loader.HarmonyID).PatchAll();
+        }
+
+        catch (Exception exception) {
+            Logger.Write(exception.ToString());
+            throw;
+        }
+    }
+
+    internal static void Unload() {
+        Destroy(Loader.HaxModules);
+        Destroy(Loader.HaxGameObjects);
+        new Harmony(Loader.HarmonyID).UnpatchAll();
     }
 }

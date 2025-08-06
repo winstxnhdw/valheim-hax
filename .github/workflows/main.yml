@@ -4,21 +4,28 @@ on:
   push:
     paths:
       - .github/workflows/main.yml
+      - .editorconfig
       - valheim-hax/**
+
+env:
+  NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
 
 jobs:
   build:
-    name: Build
     runs-on: windows-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+        with:
+          show-progress: false
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4.3.1
+        with:
+          dotnet-version: 9.x
+          cache: true
+          cache-dependency-path: valheim-hax/packages.lock.json
 
-    - name: Build
-      run: dotnet build valheim-hax
+      - name: Build
+        run: dotnet build valheim-hax -restoreProperty:RestoreLockedMode=true /warnaserror
