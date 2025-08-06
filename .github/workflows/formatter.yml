@@ -31,7 +31,6 @@ jobs:
       - name: Format scripts
         run: |
           dotnet format valheim-hax
-          dotnet format analysers
 
       - name: Set Git config
         run: |
