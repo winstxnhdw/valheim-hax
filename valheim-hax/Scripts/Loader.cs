@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -7,7 +7,7 @@ using HarmonyLib;
 
 namespace Hax;
 
-public class Loader : MonoBehaviour {
+sealed class Loader : MonoBehaviour {
     const string HarmonyID = "winstxnhdw.valheim-hax";
     static GameObject HaxGameObjects { get; } = new GameObject();
     public static GameObject HaxModules { get; } = new GameObject();
