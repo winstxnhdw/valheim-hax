@@ -4,9 +4,9 @@
     ".NETFramework,Version=v4.8": {
       "Lib.Harmony": {
         "type": "Direct",
-        "requested": "[2.3.6, )",
-        "resolved": "2.3.6",
-        "contentHash": "HqXPz33Z+R8ZDCLS5pJZthg33AMdF1bQXUbz2V7Neb9E+sMQOf4S1wquhM4pLIZFX7BZcOQubclbVreiM1+qmw=="
+        "requested": "[2.4.1, )",
+        "resolved": "2.4.1",
+        "contentHash": "iLTZi/kKKB18jYEIwReZSx2xXyVUh4J1swReMgvYBBBn4tzA1Nd0PJlVyntY5BDdSiXSxzmvjc/3OYfFs0YwFg=="
       },
       "Microsoft.NETFramework.ReferenceAssemblies": {
         "type": "Direct",
