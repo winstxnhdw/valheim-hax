@@ -34,7 +34,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v6.0.0
       with:
-        dotnet-version: 9.x
+        dotnet-version: 10.0.401
         cache: true
         cache-dependency-path: valheim-hax/packages.lock.json
 
