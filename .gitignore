@@ -1,4 +1,4 @@
-obj/
 bin/
+obj/
 node_modules/
-*.sln
+/launcher.exe

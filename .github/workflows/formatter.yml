@@ -7,6 +7,7 @@ on:
       - .github/workflows/formatter.yml
       - .editorconfig
       - valheim-hax/Scripts/**/*.cs
+      - launcher/**/*.cs
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 permissions:
@@ -32,6 +33,7 @@ jobs:
       - name: Format scripts
         run: |
           dotnet format valheim-hax
+          dotnet format launcher
 
       - name: Set Git config
         run: |
